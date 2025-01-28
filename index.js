@@ -1,27 +1,19 @@
-console.log("Hello world")
+const express = require("express");
 
-global.luckyNum = "23";
+const { generateRandomNumber, addTwoNumbers } = require("./utils");
+const fs = require("fs");
 
-console.log(global.luckyNum);
+const app = express();
 
-console.log(process.platform);
+const { readFile } = fs.promises;
 
-const hatelovepassion = () => {
-    console.log("I am exiting")
-}
+app.get("/", async (request, response) => {
+    try {
+        const html = await readFile("home.html", "utf-8");
+        response.status(200).send(html);
+    } catch (err) {
+        response.status(500).send("Sorry, something went wrong.");
+    }
+});
 
-hatelovepassion();
-
-//Denna kod kommer att köras när vi exitar/exekverat klart koden.
-process.on("exit", function () {
-    console.log("Hi, you've exited.")
-})
-
-const { EventEmitter } = require("events");
-const eventEmitter = new EventEmitter;
-
-eventEmitter.on("lunch", () => {
-    console.log("I love refrigerators.")
-})
-
-eventEmitter.emit("lunch");
+app.listen(process.env.PORT || 3000, () => console.log("App available on http://localhost:3000"));
