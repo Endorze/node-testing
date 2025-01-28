@@ -3,4 +3,8 @@ const posts = [
     {id: 1, title:"Post 2"}
 ]
 
-const getPost = () => posts;
+ const getPosts = () => posts;
+
+ export const getPostLength = () => posts.length;
+
+ export default getPosts;

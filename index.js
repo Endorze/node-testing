@@ -1,19 +1,26 @@
-const express = require("express");
+import getPosts, { getPostLength } from "./postController.js";
 
-const { generateRandomNumber, addTwoNumbers } = require("./utils");
-const fs = require("fs");
+// const express = require("express");
 
-const app = express();
+// const { generateRandomNumber, addTwoNumbers } = require("./util
+// const fs = require("fs");
 
-const { readFile } = fs.promises;
+// const app = express();
 
-app.get("/", async (request, response) => {
-    try {
-        const html = await readFile("home.html", "utf-8");
-        response.status(200).send(html);
-    } catch (err) {
-        response.status(500).send("Sorry, something went wrong.");
-    }
-});
+// const { readFile } = fs.promises;
 
-app.listen(process.env.PORT || 3000, () => console.log("App available on http://localhost:3000"));
+// app.get("/", async (request, response) => {
+//     try {
+//         const html = await readFile("home.html", "utf-8");
+//         response.status(200).send(html);
+//     } catch (err) {
+//         response.status(500).send("Sorry, something went wrong.");
+//     }
+// });
+
+// app.listen(process.env.PORT || 3000, () => console.log("App available on http://localhost:3000"));
+
+console.log(getPosts());
+
+console.log("postlength", getPostLength());
+
