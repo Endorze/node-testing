@@ -19,6 +19,10 @@ const server = http.createServer( async (req, res) => {
                 filePath = path.join(__dirname, "public", "index.html");
             } else if (req.url === "/about") {
                 filePath = path.join(__dirname, "public", "about.html");
+            } else if (req.url === "/contact") {
+                filePath = path.join(__dirname, "public", "contact.html");
+            } else if (req.url === "/blog") {
+                filePath = path.join(__dirname, "public", "blog.html");
             } else {
                 throw new error("Not found");
             }
