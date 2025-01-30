@@ -40,11 +40,11 @@ const server = http.createServer(async (req, res) => {
                 filePath = path.join(__dirname, "public", "about.html");
             } else if (req.url === "/contact") {
                 filePath = path.join(__dirname, "public", "contact.html");
-            } else if (req.url === "/login") {
-                if (req.url === "")
-                    filePath = path.join(__dirname, "public", "blog.html");
+            } else if (req.url === "/blog") {
+                filePath = path.join(__dirname, "public", "blog.html");
+            }
 
-            } else if (req.url === "/test") {
+            else if (req.url === "/test") {
                 res.setHeader("Content-Type", "text/html");
                 res.write(`
                     <h1>Welcome to the testpage</h1>
