@@ -96,6 +96,11 @@ const server = http.createServer(async (req, res) => {
     console.log(req.method);
 });
 
+
+
+
+
+
 server.listen(PORTKEY, () => {
     console.log(`Server running on port ${PORTKEY}`)
 });
